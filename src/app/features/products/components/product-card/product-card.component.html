@@ -3,17 +3,20 @@
   <span class="category">{{ product().category | titlecase }}</span>
 
   @if (product().discountPercent > 0) {
-    <p class="price">
-      <s>{{ product().price | currency }}</s>
-      <strong>{{ product().price | discountPrice: product().discountPercent | currency }}</strong>
-      <span class="badge">-{{ product().discountPercent }}%</span>
-    </p>
+  <p class="price">
+    <s>{{ product().price | currency }}</s>
+    <strong>{{ product().price | discountPrice: product().discountPercent | currency }}</strong>
+    <span class="badge">-{{ product().discountPercent }}%</span>
+  </p>
   } @else {
-    <p class="price"><strong>{{ product().price | currency }}</strong></p>
+  <p class="price"><strong>{{ product().price | currency }}</strong></p>
   }
 
   <div class="actions">
     <button type="button" class="secondary" (click)="viewDetails.emit(product().id)">დეტალები</button>
-    <button type="button" [disabled]="product().inStock" (click)="addToCart.emit(product().id)">კალათაში</button>
+
+    <!-- გავასწორე  ღილაკი ითიშება როცა პროდუქტი მარაგში არ არის -->
+    <!-- გავასწორე addToCart აგზავნის მთლიან Product ობიექტს -->
+    <button type="button" [disabled]="!product().inStock" (click)="addToCart.emit(product())">კალათაში</button>
   </div>
 </article>

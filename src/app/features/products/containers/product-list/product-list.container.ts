@@ -1,3 +1,4 @@
+
 import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +11,8 @@ import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-product-list',
-  imports: [RouterLink, ProductCardComponent],
+  // FormsModule დაემატა რადგან ngModel არ მუშაობდა
+  imports: [RouterLink, ProductCardComponent, FormsModule],
   templateUrl: './product-list.container.html',
   styleUrl: './product-list.container.css',
 })
