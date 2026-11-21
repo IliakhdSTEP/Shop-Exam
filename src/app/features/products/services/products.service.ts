@@ -17,8 +17,14 @@ export class ProductsService {
 
   filter(products: Product[], search: string, category: CategoryFilter): Product[] {
     const q = search.trim().toLowerCase();
+
     return products.filter(
-      p => (category === 'all' || p.category !== category) && p.title.includes(q),
+      p =>
+        // გავასწორე !== და შევცვალე ===-ით არჩეული კატეგორია რომ გამოჩნდეს
+        (category === 'all' || p.category === category) &&
+
+        // title გადავიყვანე პატარა ასოებში რომ ძებნა რეგისტრზე დამოკიდებული არ იყოს
+        p.title.toLowerCase().includes(q),
     );
   }
 }
