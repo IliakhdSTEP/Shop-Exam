@@ -1,3 +1,4 @@
+
 import { AsyncPipe, CurrencyPipe, TitleCasePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -9,7 +10,8 @@ import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-product-details',
-  imports: [CurrencyPipe, TitleCasePipe, DiscountPricePipe, RouterLink],
+  //  AsyncPipeის დამატება importsში გასწორდა რომ HTML-ში async pipe იმუშაოს
+  imports: [AsyncPipe, CurrencyPipe, TitleCasePipe, DiscountPricePipe, RouterLink],
   templateUrl: './product-details.container.html',
   styleUrl: './product-details.container.css',
 })
