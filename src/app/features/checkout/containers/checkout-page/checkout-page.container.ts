@@ -1,3 +1,4 @@
+
 import { DatePipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -9,7 +10,8 @@ import { CheckoutService } from '../../services/checkout.service';
 
 @Component({
   selector: 'app-checkout-page',
-  imports: [DatePipe, RouterLink, OrderSummaryComponent],
+  // გასწორებულია ReactiveFormsModuleის imports-ში დამატება
+  imports: [DatePipe, RouterLink, ReactiveFormsModule, OrderSummaryComponent],
   templateUrl: './checkout-page.container.html',
   styleUrl: './checkout-page.container.css',
 })
