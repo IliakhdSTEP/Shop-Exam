@@ -10,7 +10,8 @@ import { DiscountPricePipe } from '../../pipes/discount-price.pipe';
   // დავამატე Highlightdirective ფონის შესაცვლელად
   imports: [CurrencyPipe, TitleCasePipe, DiscountPricePipe, HighlightDirective],
   templateUrl: './product-card.component.html',
-  styleUrl: './product-card.css',
+  //  CSS ფაილის მისამართი გავასწორე და ემთხვევა ახლა
+  styleUrl: './product-card.component.css',
 })
 export class ProductCardComponent {
   readonly product = input.required<Product>();
